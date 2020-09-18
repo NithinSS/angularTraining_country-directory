@@ -1,0 +1,19 @@
+
+<h1 class="title"> Country Details</h1>
+<div *ngIf="country" class="cardContainer">
+  <mat-card class="card">
+    <mat-card-title-group>
+     <mat-card-title>{{country.name}}</mat-card-title>
+     <mat-card-subtitle>capital: {{country.capital}}</mat-card-subtitle>
+     <img mat-card-md-image [src]="country.flag">
+    </mat-card-title-group>
+
+    <mat-footer-row>
+     Population
+    </mat-footer-row>
+  </mat-card>
+</div>
+
+<div *ngIf="!country">
+  <h2> Sorry No such country</h2>
+</div>
