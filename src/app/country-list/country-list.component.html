@@ -1,0 +1,31 @@
+<div>
+  <mat-form-field class="searchBar">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Eg: India" #input>
+  </mat-form-field>
+</div>
+
+<div *ngIf="countries">
+ <table mat-table [dataSource]="dataSource">
+   <ng-container matColumnDef="name">
+     <th mat-header-cell *matHeaderCellDef> Name </th>
+     <td mat-cell *matCellDef="let country"> {{ country.name }}</td>
+   </ng-container>
+
+   <ng-container matColumnDef="region">
+    <th mat-header-cell *matHeaderCellDef> Region </th>
+    <td mat-cell *matCellDef="let country"> {{ country.region }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="capital">
+    <th mat-header-cell *matHeaderCellDef> capital </th>
+    <td mat-cell *matCellDef="let country"> {{ country.capital }}</td>
+  </ng-container>
+
+  <tr mat-mat-header-row *matHeaderRowDef="displayArray"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayArray"></tr>
+ </table>
+
+ <mat-paginator [length]="countries.length" [pageSize]="10" [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons ></mat-paginator>
+
+</div>
