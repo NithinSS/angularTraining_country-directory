@@ -36,4 +36,8 @@ export class CountryListComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  toCountry(row: string): void {
+    console.log("Go to "+row);
+  }
 }

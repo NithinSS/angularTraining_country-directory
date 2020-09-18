@@ -9,14 +9,21 @@ import { tap } from 'rxjs/operators';
 })
 export class CountryService {
 
-  countryUrl = "https://restcountries.eu/rest/v2/all";
+  countryUrl = "https://restcountries.eu/rest/v2/";
 
   constructor(private http: HttpClient) { }
 
   getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>(this.countryUrl)
+    return this.http.get<Country[]>(this.countryUrl+"all")
     .pipe (
-      tap(_ => console.log("Fetched Countries"))
+      tap(_ => console.log("Fetched all Countries"))
+    );
+  }
+
+  getCountryByName(name: string): Observable<Country[]> {
+    return this.http.get<Country[]>(this.countryUrl+"name/"+name+"?fullText=true")
+    .pipe (
+      tap(_ => console.log("Fetched details of "+name))
     );
   }
 }

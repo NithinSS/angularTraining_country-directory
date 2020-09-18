@@ -21,3 +21,10 @@ table {
   width: 60%;
 }
 
+.tableRow {
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background-color: darken($color: #555454af, $amount: 0);
+}

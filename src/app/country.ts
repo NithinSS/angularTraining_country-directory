@@ -5,5 +5,6 @@ export interface Country {
   region: string,
   population: number,
   area: number,
-  flag: string
+  flag: string,
+  callingCode: string,
 }
