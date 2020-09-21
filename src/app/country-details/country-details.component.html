@@ -1,19 +1,23 @@
-
-<h1 class="title"> Country Details</h1>
+<body>
+<h1 class="title"> Country <span> Details </span></h1>
 <div *ngIf="country" class="cardContainer">
   <mat-card class="card">
     <mat-card-title-group>
-     <mat-card-title>{{country.name}}</mat-card-title>
-     <mat-card-subtitle>capital: {{country.capital}}</mat-card-subtitle>
-     <img mat-card-md-image [src]="country.flag">
+     <mat-card-title class="name">{{country.name}}</mat-card-title>
+     <mat-card-subtitle class="capital">capital: {{country.capital}}</mat-card-subtitle>
+     <img mat-card-md-image class="flag" [src]="country.flag">
     </mat-card-title-group>
 
-    <mat-footer-row>
-     Population
-    </mat-footer-row>
+    <mat-card-footer class="footer">
+     <span>Population : {{country.population}}</span>
+     <span>Region : {{country.region}}</span>
+     <span>Area : {{country.area}}</span>
+    </mat-card-footer>
+
   </mat-card>
 </div>
 
 <div *ngIf="!country">
   <h2> Sorry No such country</h2>
 </div>
+</body>
