@@ -13,7 +13,7 @@ import {MatPaginator} from '@angular/material/paginator';
 export class CountryListComponent implements OnInit {
 
   countries: Country[] = [];
-  displayArray = ['name', 'region', 'capital'];
+  displayArray = ['sno', 'name', 'capital', 'population', 'area'];
   dataSource = new MatTableDataSource<Country>(this.countries);
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
@@ -26,6 +26,7 @@ export class CountryListComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator.length = this.countries.length;
   }
 
   getCountries(): void {
@@ -40,4 +41,6 @@ export class CountryListComponent implements OnInit {
   toCountry(row: string): void {
     console.log("Go to "+row);
   }
+
 }
+
